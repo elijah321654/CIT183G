@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Routes;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/users',[UserController::class, 'index']);
+Route::get( '/user/{id}',[UserController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
